@@ -63,6 +63,9 @@ public class Node extends JButton implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        setBackground(Color.orange);
+        setAsSolid();
+
+        // Récupérer le parent (DemoPanel) et lui redonner le focus
+        this.getParent().requestFocusInWindow();
     }
 }

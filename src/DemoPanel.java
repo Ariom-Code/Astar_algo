@@ -182,6 +182,12 @@ public class DemoPanel extends JPanel  {
     public void autoSearch(){
 
         while (goalReached == false && step < 300){
+            if (openList.isEmpty()) {
+                // Aucun chemin disponible
+                System.out.println("Aucun chemin disponible pour atteindre l'objectif !");
+                return; // Arrêter la recherche
+            }
+
             int col = currentNode.col;
             int row = currentNode.row;
 
@@ -223,6 +229,7 @@ public class DemoPanel extends JPanel  {
                     }
                 }
             }
+
             //after that we get the best node which is our next step
             currentNode = openList.get(bestNodeIndex);
             if(currentNode == goalNode){
